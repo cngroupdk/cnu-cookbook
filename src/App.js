@@ -4,6 +4,7 @@ import { useScroll } from 'react-router-scroll';
 import Routes from './Routes';
 
 import 'bootstrap/dist/css/bootstrap.css';
+import 'font-awesome/css/font-awesome.css';
 import './App.css';
 
 class App extends Component {
