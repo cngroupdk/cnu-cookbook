@@ -1,5 +1,4 @@
 import axios from 'axios';
+import { API_BASE_URL } from './appConfig.js';
 
-const baseURL = 'https://cookbook.jakubricar.cz/api/';
-
-export default () => axios.create({ baseURL });
+export default () => axios.create({ baseURL: API_BASE_URL });
