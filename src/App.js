@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Router, browserHistory, applyRouterMiddleware } from 'react-router';
 import { useScroll } from 'react-router-scroll';
-import Routes from './Routes';
+import routes from './routes';
 
 import 'bootstrap/dist/css/bootstrap.css';
 import 'font-awesome/css/font-awesome.css';
@@ -13,7 +13,7 @@ class App extends Component {
       <Router
         history={browserHistory}
         render={applyRouterMiddleware(useScroll())}
-        routes={Routes}
+        routes={routes}
       />
     );
   }
