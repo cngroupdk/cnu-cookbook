@@ -5,6 +5,10 @@ import AppNavbar from '../components/AppNavbar/AppNavbar';
 import AppFooter from '../components/AppFooter/AppFooter';
 
 class AppPage extends Component {
+  static propTypes = {
+    children: PropTypes.element,
+  };
+
   render() {
     return (
       <div>
@@ -17,9 +21,5 @@ class AppPage extends Component {
     );
   }
 }
-
-AppPage.propTypes = {
-  children: PropTypes.element,
-};
 
 export default AppPage;
