@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router';
 import api from '../api';
 import RecipeList from '../components/RecipeList/RecipeList';
 import SearchBox from '../components/SearchBox/SearchBox';
@@ -61,6 +62,12 @@ class RecipeListPage extends Component {
 
     return (
       <div>
+        <p>
+          <Link to="/api-test" className="btn btn-primary btn-lg">
+            API Test Page
+          </Link>
+        </p>
+
         <SearchBox
           text={searchText}
           quick={searchQuick}
