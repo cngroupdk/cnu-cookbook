@@ -41,6 +41,16 @@ class RecipeEditPage extends Component {
         // This is a redirection back to the detail
         this.props.router.push(`/recipe/${response.data.slug}`);
       });
+
+    // To create a new recipe, just omit the ID in the URL
+    // api()
+    //   .post(`/recipes`, {
+    //     title: 'My new recipe',
+    //   })
+    //   .then(response => {
+    //     // This is a redirection back to the detail
+    //     this.props.router.push(`/recipe/${response.data.slug}`);
+    //   });
   }
 
   render() {
