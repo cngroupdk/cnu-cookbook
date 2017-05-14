@@ -16,6 +16,7 @@ class ApiTestPage extends Component {
     this.handleIdChange = this.handleIdChange.bind(this);
     this.handleLoadListClick = this.handleLoadListClick.bind(this);
     this.handleLoadDetailClick = this.handleLoadDetailClick.bind(this);
+    this.handleLoginClick = this.handleLoginClick.bind(this);
   }
 
   handleIdChange(event) {
@@ -64,6 +65,25 @@ class ApiTestPage extends Component {
       }));
   }
 
+  handleLoginClick() {
+    this.setState({
+      isFetching: true,
+      data: null,
+      error: null,
+    });
+
+    api()
+      .post('/auth/login', { username: 'user', password: 'secret' })
+      .then(response => this.setState({
+        isFetching: false,
+        data: response.data,
+      }))
+      .catch(() => this.setState({
+        isFetching: false,
+        error: 'Error auth.',
+      }));
+  }
+
   renderResult() {
     const { isFetching, data, error } = this.state;
 
@@ -90,6 +110,10 @@ class ApiTestPage extends Component {
         <PageHeader>API Test Page</PageHeader>
 
         <Form inline>
+          <Button bsStyle="primary" onClick={this.handleLoginClick}>Login</Button>
+          {' '}
+          or
+          {' '}
           <Button bsStyle="primary" onClick={this.handleLoadListClick}>Load List</Button>
           {' '}
           or
