@@ -4,6 +4,14 @@ import api from '../api';
 import RecipeList from '../components/RecipeList/RecipeList';
 import SearchBox from '../components/SearchBox/SearchBox';
 
+
+import { connect } from 'react-redux';
+import {
+  recipeListFetch,
+  recipeListFetchSuccess,
+} from '../components/RecipeList/actions';
+
+
 class RecipeListPage extends Component {
   constructor(props) {
     super(props);
@@ -20,6 +28,14 @@ class RecipeListPage extends Component {
   }
 
   componentWillMount() {
+    const {
+      recipeListFetch,
+      recipeListFetchSuccess,
+    } = this.props;
+
+    recipeListFetch();
+    recipeListFetchSuccess();
+
     api
       .get('/recipes')
       .then((response) => {
@@ -84,4 +100,10 @@ class RecipeListPage extends Component {
   }
 }
 
-export default RecipeListPage;
+export default connect(
+  null,
+  {
+    recipeListFetch,
+    recipeListFetchSuccess,
+  }
+)(RecipeListPage);
