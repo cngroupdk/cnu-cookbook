@@ -8,8 +8,6 @@ const reducer = (
   state = initialState,
   action
 ) => {
-  console.log('--- state', state, 'action', action);
-
   switch (action.type) {
     case 'RECIPE_LIST.FETCH':
       return {

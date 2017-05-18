@@ -5,8 +5,11 @@ import 'rxjs';
 
 import type { Action, Deps, Epic, StoreState } from '../types';
 
+import { epics as recipeListEpics } from
+  '../components/RecipeList/actions';
+
 const EPICS: Array<Epic> = [
-  // ...travelledVehicleEpics,
+  ...recipeListEpics,
 ];
 
 const configureEpics = (deps: Deps, epics: Array<Epic> = EPICS) => (

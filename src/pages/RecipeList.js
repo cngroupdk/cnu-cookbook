@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
-import api from '../api';
+
 import RecipeList from '../components/RecipeList/RecipeList';
 import SearchBox from '../components/SearchBox/SearchBox';
 
@@ -17,8 +17,6 @@ class RecipeListPage extends Component {
     super(props);
 
     this.state = {
-      isFetching: true,
-      recipes: [],
       searchText: '',
       searchQuick: false,
     };
@@ -28,40 +26,8 @@ class RecipeListPage extends Component {
   }
 
   componentWillMount() {
-    const {
-      recipeListFetch,
-      recipeListFetchSuccess,
-    } = this.props;
-
+    const { recipeListFetch } = this.props;
     recipeListFetch();
-
-    setTimeout(() => {
-      recipeListFetchSuccess([
-        {
-          "_id": "57ed9ca122e125000f2a714c",
-          "title": "Špaldové celozrnné palačinky",
-          "preparationTime": 30,
-          "slug": "spaldove-celozrnne-palacinky",
-          "sideDish": "bebee"
-        },
-        {
-          "_id": "57f3f16d34de67000fd29bdd",
-          "title": "Grilovaný hermelín",
-          "preparationTime": 30,
-          "sideDish": "špenátový šalalát",
-          "slug": "grilovany-hermelin"
-        },
-      ]);
-    }, 2000);
-
-    // api
-    //   .get('/recipes')
-    //   .then((response) => {
-    //     this.setState({
-    //       isFetching: false,
-    //       recipes: response.data,
-    //     });
-    //   });
   }
 
   handleSearchTextChange(event) {
