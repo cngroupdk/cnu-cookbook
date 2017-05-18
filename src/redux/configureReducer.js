@@ -1,10 +1,14 @@
 // @flow
 import { combineReducers } from 'redux';
 
+import recipeListReducer from
+'../components/RecipeList/reducer';
+
 import type { Action, StoreState } from '../types';
 
 const configureReducer = () => {
   const appReducer = combineReducers({
+    recipeList: recipeListReducer,
     counter: (state = {}, action) => state,
   });
 
