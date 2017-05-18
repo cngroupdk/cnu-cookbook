@@ -34,7 +34,22 @@ class RecipeListPage extends Component {
     } = this.props;
 
     recipeListFetch();
-    recipeListFetchSuccess();
+    recipeListFetchSuccess([
+      {
+        "_id": "57ed9ca122e125000f2a714c",
+        "title": "Špaldové celozrnné palačinky",
+        "preparationTime": 30,
+        "slug": "spaldove-celozrnne-palacinky",
+        "sideDish": "bebee"
+      },
+      {
+        "_id": "57f3f16d34de67000fd29bdd",
+        "title": "Grilovaný hermelín",
+        "preparationTime": 30,
+        "sideDish": "špenátový šalalát",
+        "slug": "grilovany-hermelin"
+      },
+    ]);
 
     api
       .get('/recipes')

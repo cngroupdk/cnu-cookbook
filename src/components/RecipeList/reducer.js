@@ -1,6 +1,7 @@
 
 const initialState = {
-  x: 52,
+  isLoading: false,
+  recipes: [],
 }
 
 const reducer = (
@@ -8,7 +9,27 @@ const reducer = (
   action
 ) => {
   console.log('--- state', state, 'action', action);
-  return state;
+
+  switch (action.type) {
+    case 'RECIPE_LIST.FETCH':
+      return {
+        ...state,
+        isLoading: true,
+      };
+
+    case 'RECIPE_LIST.FETCH.SUCCESS': {
+      const { recipes } = action.payload;
+
+      return {
+        ...state,
+        isLoading: false,
+        recipes,
+      }
+    }
+
+    default:
+      return state;
+  }
 };
 
 export default reducer;
