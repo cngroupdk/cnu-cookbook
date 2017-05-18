@@ -34,31 +34,34 @@ class RecipeListPage extends Component {
     } = this.props;
 
     recipeListFetch();
-    recipeListFetchSuccess([
-      {
-        "_id": "57ed9ca122e125000f2a714c",
-        "title": "Špaldové celozrnné palačinky",
-        "preparationTime": 30,
-        "slug": "spaldove-celozrnne-palacinky",
-        "sideDish": "bebee"
-      },
-      {
-        "_id": "57f3f16d34de67000fd29bdd",
-        "title": "Grilovaný hermelín",
-        "preparationTime": 30,
-        "sideDish": "špenátový šalalát",
-        "slug": "grilovany-hermelin"
-      },
-    ]);
 
-    api
-      .get('/recipes')
-      .then((response) => {
-        this.setState({
-          isFetching: false,
-          recipes: response.data,
-        });
-      });
+    setTimeout(() => {
+      recipeListFetchSuccess([
+        {
+          "_id": "57ed9ca122e125000f2a714c",
+          "title": "Špaldové celozrnné palačinky",
+          "preparationTime": 30,
+          "slug": "spaldove-celozrnne-palacinky",
+          "sideDish": "bebee"
+        },
+        {
+          "_id": "57f3f16d34de67000fd29bdd",
+          "title": "Grilovaný hermelín",
+          "preparationTime": 30,
+          "sideDish": "špenátový šalalát",
+          "slug": "grilovany-hermelin"
+        },
+      ]);
+    }, 2000);
+
+    // api
+    //   .get('/recipes')
+    //   .then((response) => {
+    //     this.setState({
+    //       isFetching: false,
+    //       recipes: response.data,
+    //     });
+    //   });
   }
 
   handleSearchTextChange(event) {
@@ -74,7 +77,15 @@ class RecipeListPage extends Component {
   }
 
   render() {
-    const { isFetching, recipes, searchText, searchQuick } = this.state;
+    const {
+      isLoading,
+      recipes,
+    } = this.props;
+
+    const {
+      searchText,
+      searchQuick,
+    } = this.state;
 
     const filteredRecipes = !searchText && !searchQuick
       ? recipes
@@ -107,7 +118,7 @@ class RecipeListPage extends Component {
         />
 
         <RecipeList
-          isFetching={isFetching}
+          isFetching={isLoading}
           recipes={filteredRecipes}
         />
       </div>
@@ -115,10 +126,32 @@ class RecipeListPage extends Component {
   }
 }
 
+const mapStateToProps = (state) => {
+  const {
+    isLoading,
+    recipes,
+  } = state.recipeList;
+
+  return {
+    isLoading,
+    recipes,
+  }
+}
+
 export default connect(
-  null,
+  mapStateToProps,
   {
     recipeListFetch,
     recipeListFetchSuccess,
   }
 )(RecipeListPage);
+
+
+
+
+
+
+
+
+
+///
