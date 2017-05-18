@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import api from '../api';
-import Loader from '../components/Common/Loader';
+import Loader from '../components/common/Loader';
 
 class RecipeEditPage extends Component {
   constructor(props) {
@@ -16,7 +16,7 @@ class RecipeEditPage extends Component {
   }
 
   componentWillMount() {
-    api()
+    api
       .get(`/recipes/${this.props.params.slug}`)
       .then((response) => {
         this.setState({
@@ -33,7 +33,7 @@ class RecipeEditPage extends Component {
       isSaving: true,
     });
 
-    api()
+    api
       .post(`/recipes/${this.state.recipe._id}`, {
         title: this.state.recipe.title,
       })
@@ -43,7 +43,7 @@ class RecipeEditPage extends Component {
       });
 
     // To create a new recipe, just omit the ID in the URL
-    // api()
+    // api
     //   .post(`/recipes`, {
     //     title: 'My new recipe',
     //   })

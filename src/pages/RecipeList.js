@@ -20,7 +20,7 @@ class RecipeListPage extends Component {
   }
 
   componentWillMount() {
-    api()
+    api
       .get('/recipes')
       .then((response) => {
         this.setState({

@@ -32,7 +32,7 @@ class ApiTestPage extends Component {
       error: null,
     });
 
-    api()
+    api
       .get('/recipes')
       .then(response => this.setState({
         isFetching: false,
@@ -53,7 +53,7 @@ class ApiTestPage extends Component {
       error: null,
     });
 
-    api()
+    api
       .get(`/recipes/${id}`)
       .then(response => this.setState({
         isFetching: false,
@@ -72,7 +72,7 @@ class ApiTestPage extends Component {
       error: null,
     });
 
-    api()
+    api
       .post('/auth/login', { username: 'user', password: 'secret' })
       .then(response => this.setState({
         isFetching: false,

@@ -13,7 +13,7 @@ class RecipeDetailPage extends Component {
   }
 
   componentWillMount() {
-    api()
+    api
       .get(`/recipes/${this.props.params.slug}`)
       .then((response) => {
         this.setState({

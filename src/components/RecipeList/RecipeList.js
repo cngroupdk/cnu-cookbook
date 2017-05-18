@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Loader from '../Common/Loader';
+import Loader from '../common/Loader';
 import RecipeListItem from './RecipeListItem';
 
 function RecipeList(props) {

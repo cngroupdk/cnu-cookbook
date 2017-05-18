@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router';
-import Loader from '../Common/Loader';
+import Loader from '../common/Loader';
 
 function RecipeDetail(props) {
   if (props.isFetching) {
