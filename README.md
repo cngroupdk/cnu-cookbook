@@ -5,16 +5,16 @@ It contains basic setup and page layout.
 
 ## Getting Started
 
-### `npm install` or `yarn`
+### `yarn`
 Installs all dependencies.
 
-### `npm start` or `yarn start`
+### `yarn start`
 Runs the app in development mode.
 Open http://localhost:3000 to view it in the browser.
 
 The page will reload if you make edits.
 You will see the build errors and lint warnings in the console.
 
-### `npm test` or `yarn test`
+### `yarn test`
 Runs the test watcher in an interactive mode.
 By default, runs tests related to files changed since the last commit.
