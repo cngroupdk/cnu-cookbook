@@ -1,5 +1,13 @@
 import React, { Component } from 'react';
-import { Alert, Button, Form, FormControl, FormGroup, InputGroup, PageHeader } from 'react-bootstrap';
+import {
+  Alert,
+  Button,
+  Form,
+  FormControl,
+  FormGroup,
+  InputGroup,
+  PageHeader,
+} from 'react-bootstrap';
 import api from '../api';
 
 class ApiTestPage extends Component {
@@ -31,16 +39,20 @@ class ApiTestPage extends Component {
       error: null,
     });
 
-    api()
+    api
       .get('/recipes')
-      .then(response => this.setState({
-        isFetching: false,
-        data: response.data,
-      }))
-      .catch(() => this.setState({
-        isFetching: false,
-        error: 'Error fetching list.',
-      }));
+      .then(response =>
+        this.setState({
+          isFetching: false,
+          data: response.data,
+        }),
+      )
+      .catch(() =>
+        this.setState({
+          isFetching: false,
+          error: 'Error fetching list.',
+        }),
+      );
   }
 
   handleLoadDetailClick() {
@@ -52,23 +64,29 @@ class ApiTestPage extends Component {
       error: null,
     });
 
-    api()
+    api
       .get(`/recipes/${id}`)
-      .then(response => this.setState({
-        isFetching: false,
-        data: response.data,
-      }))
-      .catch(() => this.setState({
-        isFetching: false,
-        error: 'Error fetching detail.',
-      }));
+      .then(response =>
+        this.setState({
+          isFetching: false,
+          data: response.data,
+        }),
+      )
+      .catch(() =>
+        this.setState({
+          isFetching: false,
+          error: 'Error fetching detail.',
+        }),
+      );
   }
 
   renderResult() {
     const { isFetching, data, error } = this.state;
 
     if (isFetching) {
-      return <span><i className="fa fa-spinner fa-spin" /> Loading&hellip;</span>;
+      return (
+        <span><i className="fa fa-spinner fa-spin" /> Loading&hellip;</span>
+      );
     }
 
     if (data) {
@@ -83,14 +101,16 @@ class ApiTestPage extends Component {
   }
 
   render() {
-    const { id } = this.state;
+    const { id } = this.state;
 
     return (
       <div>
         <PageHeader>API Test Page</PageHeader>
 
         <Form inline>
-          <Button bsStyle="primary" onClick={this.handleLoadListClick}>Load List</Button>
+          <Button bsStyle="primary" onClick={this.handleLoadListClick}>
+            Load List
+          </Button>
           {' '}
           or
           {' '}
@@ -104,10 +124,7 @@ class ApiTestPage extends Component {
                 style={{ width: '250px' }}
               />
               <InputGroup.Button>
-                <Button
-                  onClick={this.handleLoadDetailClick}
-                  disabled={!id}
-                >
+                <Button onClick={this.handleLoadDetailClick} disabled={!id}>
                   Load Detail
                 </Button>
               </InputGroup.Button>

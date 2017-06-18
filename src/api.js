@@ -1,4 +1,6 @@
-import axios from 'axios';
+import { create } from 'apisauce';
 import { API_BASE_URL } from './appConfig';
 
-export default () => axios.create({ baseURL: API_BASE_URL });
+const api = create({ baseURL: API_BASE_URL });
+
+export default api;

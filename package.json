@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "axios": "^0.16.1",
+    "apisauce": "^0.13.0",
     "bootstrap": "^3.3.7",
     "font-awesome": "^4.7.0",
     "prop-types": "^15.5.8",
