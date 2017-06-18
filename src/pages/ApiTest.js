@@ -39,20 +39,13 @@ class ApiTestPage extends Component {
       error: null,
     });
 
-    api
-      .get('/recipes')
-      .then(response =>
-        this.setState({
-          isFetching: false,
-          data: response.data,
-        }),
-      )
-      .catch(() =>
-        this.setState({
-          isFetching: false,
-          error: 'Error fetching list.',
-        }),
-      );
+    api.get('/recipes').then(({ data, problem }) => {
+      this.setState({
+        isFetching: false,
+        data,
+        error: problem,
+      });
+    });
   }
 
   handleLoadDetailClick() {
@@ -64,20 +57,13 @@ class ApiTestPage extends Component {
       error: null,
     });
 
-    api
-      .get(`/recipes/${id}`)
-      .then(response =>
-        this.setState({
-          isFetching: false,
-          data: response.data,
-        }),
-      )
-      .catch(() =>
-        this.setState({
-          isFetching: false,
-          error: 'Error fetching detail.',
-        }),
-      );
+    api.get(`/recipes/${id}`).then(({ data, problem }) => {
+      this.setState({
+        isFetching: false,
+        data,
+        error: problem,
+      });
+    });
   }
 
   renderResult() {
