@@ -4,7 +4,7 @@ import { Grid } from 'react-bootstrap';
 import AppNavbar from '../components/AppNavbar/AppNavbar';
 import AppFooter from '../components/AppFooter/AppFooter';
 
-class AppPage extends Component {
+class MainLayout extends Component {
   static propTypes = {
     children: PropTypes.element,
   };
@@ -22,4 +22,4 @@ class AppPage extends Component {
   }
 }
 
-export default AppPage;
+export default MainLayout;
