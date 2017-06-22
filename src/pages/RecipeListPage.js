@@ -16,6 +16,7 @@ class RecipeListPage extends Component {
     this.handleSearchChange = this.handleSearchChange.bind(
       this,
     );
+    this.handleAddClick = this.handleAddClick.bind(this);
   }
 
   componentWillMount() {}
@@ -36,6 +37,14 @@ class RecipeListPage extends Component {
     });
   }
 
+  handleAddClick() {
+    const newRecipe = {
+      _id: Math.random(),
+      title: 'Recept ' + new Date(),
+    };
+    this.props.reduxAddRecipe(newRecipe);
+  }
+
   render() {
     const { recipesFromRedux, isFetching } = this.props;
     const { searchText } = this.state;
@@ -51,6 +60,13 @@ class RecipeListPage extends Component {
 
     return (
       <div>
+        <button
+          type="button"
+          className="btn btn-primary"
+          onClick={this.handleAddClick}
+        >
+          Přidat recept
+        </button>
         <SearchBar
           text={searchText}
           onChange={this.handleSearchChange}
