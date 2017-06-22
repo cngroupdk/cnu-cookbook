@@ -20,18 +20,7 @@ class RecipeListPage extends Component {
       );
     }
 
-    return (
-      <div>
-        <button
-          type="button"
-          className="btn btn-primary"
-          onClick={this.handleAddClick}
-        >
-          Přidat recept
-        </button>
-        <RecipeList recipes={recipesFromRedux} />
-      </div>
-    );
+    return <RecipeList recipes={recipesFromRedux} />;
   }
 }
 
