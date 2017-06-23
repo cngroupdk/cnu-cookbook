@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import RecipeList from '../components/RecipeList/RecipeList';
 import { fetchRecipes } from '../components/RecipeList/actions';
+import RecipeList from '../components/RecipeList/RecipeList';
+import Spinner from '../components/common/Spinner';
 
 class RecipeListPage extends Component {
   componentWillMount() {
@@ -9,33 +10,27 @@ class RecipeListPage extends Component {
   }
 
   render() {
-    const { recipesFromRedux, isFetching } = this.props;
+    const { recipes, isFetching } = this.props;
 
     if (isFetching) {
-      return (
-        <div>
-          Loading...{' '}
-          <i className="fa fa-spin fa-spinner" />
-        </div>
-      );
+      return <Spinner />;
     }
 
-    return <RecipeList recipes={recipesFromRedux} />;
+    return <RecipeList recipes={recipes} />;
   }
 }
 
-const mapReduxStoreToProps = reduxStore => {
+const mapStateToProps = state => {
+  const { recipes, isFetching } = state.recipeList;
+
   return {
-    recipesFromRedux: reduxStore.recipeList.recipes,
-    isFetching: reduxStore.recipeList.isFetching,
+    recipes,
+    isFetching,
   };
 };
 
-const mapActionsToProps = {
+const mapDispatchToProps = {
   fetchRecipes,
 };
 
-export default connect(
-  mapReduxStoreToProps,
-  mapActionsToProps,
-)(RecipeListPage);
+export default connect(mapStateToProps, mapDispatchToProps)(RecipeListPage);

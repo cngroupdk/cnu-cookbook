@@ -7,4 +7,8 @@ export default {
     recipes: [],
     isFetching: false,
   },
+  recipeDetail: {
+    recipesBySlug: {},
+    isFetching: false,
+  },
 };
