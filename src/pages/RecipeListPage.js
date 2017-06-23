@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchRecipes } from '../components/RecipeList/actions';
 import RecipeList from '../components/RecipeList/RecipeList';
+import SearchBar from '../components/SearchBar/SearchBar';
 import Spinner from '../components/common/Spinner';
 
 class RecipeListPage extends Component {
@@ -16,7 +17,12 @@ class RecipeListPage extends Component {
       return <Spinner />;
     }
 
-    return <RecipeList recipes={recipes} />;
+    return (
+      <div>
+        <SearchBar />
+        <RecipeList recipes={recipes} />
+      </div>
+    );
   }
 }
 

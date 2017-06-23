@@ -1,8 +1,9 @@
 import React from 'react';
 import RecipeListItem from './Item';
+import './RecipeList.css';
 
 const RecipeList = ({ recipes }) =>
-  <ul>
+  <ul className="recipe-list">
     {recipes.map(({ _id, title, sideDish, preparationTime, slug }) =>
       <RecipeListItem
         key={_id}
