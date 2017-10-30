@@ -1,7 +1,11 @@
-import initialState from '../../redux/initialState';
 import { UPDATE } from './actions';
 
-const reducer = (state = initialState.reduxTest, action) => {
+const initialState = {
+  loadTime: String(new Date()),
+  lastUpdate: null,
+};
+
+const reducer = (state = initialState, action) => {
   switch (action.type) {
     case UPDATE: {
       const { lastUpdate } = action.payload;

@@ -11,14 +11,13 @@ class ReduxTestPage extends Component {
     update: PropTypes.func.isRequired,
   };
 
-  constructor(props) {
-    super(props);
-
-    this.handleUpdate = this.handleUpdate.bind(this);
-  }
-
-  handleUpdate() {
+  handleUpdate = () => {
     this.props.update(String(new Date()));
+  };
+
+  componentWillReceiveProps(nextProps) {
+    console.log('Prev', this.props);
+    console.log('Next', nextProps);
   }
 
   render() {
@@ -38,8 +37,8 @@ const mapStateToProps = state => {
   const { loadTime, lastUpdate } = state.reduxTest;
 
   return {
-    loadTime,
-    lastUpdate,
+    loadTime: loadTime,
+    lastUpdate: lastUpdate,
   };
 };
 

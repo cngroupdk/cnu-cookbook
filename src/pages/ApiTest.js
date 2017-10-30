@@ -24,6 +24,8 @@ class ApiTestPage extends Component {
     this.handleIdChange = this.handleIdChange.bind(this);
     this.handleLoadListClick = this.handleLoadListClick.bind(this);
     this.handleLoadDetailClick = this.handleLoadDetailClick.bind(this);
+
+    console.log(props.params);
   }
 
   handleIdChange(event) {
@@ -71,7 +73,9 @@ class ApiTestPage extends Component {
 
     if (isFetching) {
       return (
-        <span><i className="fa fa-spinner fa-spin" /> Loading&hellip;</span>
+        <span>
+          <i className="fa fa-spinner fa-spin" /> Loading&hellip;
+        </span>
       );
     }
 
@@ -96,10 +100,8 @@ class ApiTestPage extends Component {
         <Form inline>
           <Button bsStyle="primary" onClick={this.handleLoadListClick}>
             Load List
-          </Button>
-          {' '}
-          or
-          {' '}
+          </Button>{' '}
+          or{' '}
           <FormGroup>
             <InputGroup>
               <FormControl
