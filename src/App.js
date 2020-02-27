@@ -1,29 +1,18 @@
-import React, { Component } from 'react';
-import { Provider } from 'react-redux';
-import { Router, browserHistory, applyRouterMiddleware } from 'react-router';
-import { syncHistoryWithStore } from 'react-router-redux';
-import { useScroll } from 'react-router-scroll';
-import configureStore from './redux/configureStore';
-import routes from './routes';
+import React from "react";
+import { BrowserRouter as Router } from "react-router-dom";
+import "bootstrap/dist/css/bootstrap.css";
+import "font-awesome/css/font-awesome.css";
 
-import 'bootstrap/dist/css/bootstrap.css';
-import 'font-awesome/css/font-awesome.css';
-import './App.css';
+import { Routes } from "./routes";
+import { MainLayout } from "./pages/MainLayout";
+import "./App.css";
 
-const store = configureStore();
-
-class App extends Component {
-  render() {
-    return (
-      <Provider store={store}>
-        <Router
-          history={syncHistoryWithStore(browserHistory, store)}
-          render={applyRouterMiddleware(useScroll())}
-          routes={routes}
-        />
-      </Provider>
-    );
-  }
+export function App() {
+  return (
+    <Router>
+      <MainLayout>
+        <Routes />
+      </MainLayout>
+    </Router>
+  );
 }
-
-export default App;

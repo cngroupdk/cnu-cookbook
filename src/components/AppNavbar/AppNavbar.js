@@ -1,14 +1,14 @@
-import React from 'react';
-import { Navbar } from 'react-bootstrap';
-import { IndexLink } from 'react-router';
+import React from "react";
+import { Container, Navbar } from "react-bootstrap";
 
-const AppNavbar = () =>
-  <Navbar staticTop>
-    <Navbar.Header>
-      <Navbar.Brand>
-        <IndexLink to="/">Cookbook</IndexLink>
-      </Navbar.Brand>
-    </Navbar.Header>
-  </Navbar>;
+function AppNavbar() {
+  return (
+    <Navbar bg="light" expand="lg" className="navbar-top">
+      <Container>
+        <Navbar.Brand href="/">Cookbook</Navbar.Brand>
+      </Container>
+    </Navbar>
+  );
+}
 
-export default AppNavbar;
+export { AppNavbar };

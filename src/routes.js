@@ -1,16 +1,20 @@
-import React from 'react';
-import { IndexRoute, Route } from 'react-router';
-import MainLayout from './pages/MainLayout';
-import HomePage from './pages/Home';
-import ApiTestPage from './pages/ApiTest';
-import ReduxTestPage from './pages/ReduxTest';
-import NotFoundPage from './pages/NotFound';
+import React from "react";
+import { Route, Switch } from "react-router-dom";
 
-export default (
-  <Route path="/" component={MainLayout}>
-    <IndexRoute component={HomePage} />
-    <Route path="api-test" component={ApiTestPage} />
-    <Route path="redux-test" component={ReduxTestPage} />
-    <Route path="*" component={NotFoundPage} />
-  </Route>
-);
+import { HomePage } from "./pages/HomePage";
+import { ApiTestPage } from "./pages/ApiTestPage";
+import { NotFoundPage } from "./pages/NotFoundPage";
+// import { RecipeListPage } from './pages/RecipeListPage';
+// import { RecipeDetailPage } from './pages/RecipeDetailPage';
+
+export function Routes() {
+  return (
+    <Switch>
+      <Route exact path="/" component={HomePage} />
+      {/*<Route exact path="/recipes" component={RecipeListPage} />*/}
+      {/*<Route path="/recipe/:id" component={RecipeDetailPage} />*/}
+      <Route path="/api-test" component={ApiTestPage} />
+      <Route path="*" component={NotFoundPage} />
+    </Switch>
+  );
+}

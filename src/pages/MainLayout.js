@@ -1,25 +1,17 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { Grid } from 'react-bootstrap';
-import AppNavbar from '../components/AppNavbar/AppNavbar';
-import AppFooter from '../components/AppFooter/AppFooter';
+import React, { Fragment } from "react";
+import { Container } from "react-bootstrap";
 
-class MainLayout extends Component {
-  static propTypes = {
-    children: PropTypes.element,
-  };
+import { AppNavbar } from "../components/AppNavbar/AppNavbar";
+import { AppFooter } from "../components/AppFooter/AppFooter";
 
-  render() {
-    return (
-      <div>
-        <AppNavbar />
-        <Grid>
-          {this.props.children}
-          <AppFooter />
-        </Grid>
-      </div>
-    );
-  }
+function MainLayout({ children }) {
+  return (
+    <Fragment>
+      <AppNavbar />
+      <Container>{children}</Container>
+      <AppFooter />
+    </Fragment>
+  );
 }
 
-export default MainLayout;
+export { MainLayout };
