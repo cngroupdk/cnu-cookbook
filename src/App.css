@@ -1,7 +1,42 @@
-.page-header {
-  margin-top: 0;
+.navbar-top {
+  margin-bottom: 16px;
 }
 
-.page-header h1 {
-  margin-top: 0;
+.page-header {
+  padding-bottom: 8px;
+  margin: 16px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.page-footer {
+  color: #6c757d;
+}
+
+pre {
+  display: block;
+  padding: 9.5px;
+  margin: 0 0 10px;
+  font-size: 13px;
+  line-height: 1.42857143;
+  color: #333;
+  word-break: break-all;
+  word-wrap: break-word;
+  background-color: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.recipe {
+  margin-bottom: 24px;
+}
+
+.recipe-title {
+  font-size: 13px;
+  font-weight: 800;
+  padding-left: 8px;
+}
+
+.recipe-text {
+  font-size: 13px;
+  padding-left: 8px;
 }

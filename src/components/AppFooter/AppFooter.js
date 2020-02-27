@@ -1,9 +1,13 @@
-import React from 'react';
+import React from "react";
+import { Container } from "react-bootstrap";
 
-const AppFooter = () =>
-  <div>
-    <hr />
-    <p>&copy; {new Date().getFullYear()} &middot; CN Group CZ s.r.o.</p>
-  </div>;
+function AppFooter() {
+  return (
+    <Container as="footer" className="page-footer">
+      <hr />
+      <p>&copy; {new Date().getFullYear()} &middot; CN Group CZ s.r.o.</p>
+    </Container>
+  );
+}
 
-export default AppFooter;
+export { AppFooter };
