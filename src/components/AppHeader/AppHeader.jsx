@@ -1,9 +1,9 @@
 import React from "react";
 import { Container, Navbar } from "react-bootstrap";
 
-function AppNavbar() {
+function AppHeader() {
   return (
-    <Navbar bg="light" expand="lg" className="navbar-top">
+    <Navbar bg="dark" variant="dark">
       <Container>
         <Navbar.Brand href="/">Cookbook</Navbar.Brand>
       </Container>
@@ -11,4 +11,4 @@ function AppNavbar() {
   );
 }
 
-export { AppNavbar };
+export default AppHeader;

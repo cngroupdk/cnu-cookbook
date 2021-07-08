@@ -1,11 +1,11 @@
-import { create } from "apisauce";
+import axios from 'axios';
 
-const API_BASE_URL = "https://cookbook.jakubricar.cz/api/";
+const API_BASE_URL = 'https://exercise.cngroup.dk/api/';
 
-export const api = create({
+export const api = axios.create({
   baseURL: API_BASE_URL,
   headers: {
-    "Cache-Control": "no-cache",
-    Pragma: "no-cache"
-  }
+    'Cache-Control': 'no-cache',
+    Pragma: 'no-cache',
+  },
 });
