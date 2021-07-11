@@ -1,8 +1,5 @@
-
 import React from 'react';
 
-export function RecipeListPage(props) {
-  return (
-    <h1>Recepty</h1>
-  );
+export function RecipeListPage() {
+  return <h1>Recepty</h1>;
 }

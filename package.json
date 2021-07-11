@@ -21,8 +21,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "eslint": "eslint \"./src/**/*.{js,ts,jsx,tsx}\" --color --cache",
-    "prettier": "prettier --write \"./src/**/*.{css,js,json,ts,tsx,less}\""
+    "eslint": "eslint \"./src/**/*.{js,jsx}\" --color --cache",
+    "prettier": "prettier --write \"./src/**/*.{css,js,jsx}\""
   },
   "eslintConfig": {
     "extends": [

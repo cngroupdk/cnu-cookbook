@@ -1,9 +1,8 @@
-import React from "react";
-import { Jumbotron } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import React from 'react';
+import { Jumbotron } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 export function NotFoundPage() {
-
   return (
     <Jumbotron className="text-center">
       <h1>Nenalezeno!</h1>
