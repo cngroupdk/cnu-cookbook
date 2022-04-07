@@ -1,5 +1,23 @@
 import React, { useState } from 'react';
-import { Alert, Button, Form, FormControl, FormGroup, InputGroup } from 'react-bootstrap';
+import {
+  Alert,
+  AlertIcon,
+  AlertTitle,
+  InputGroup,
+  InputRightElement,
+  Input,
+  Button,
+  Heading,
+  HStack,
+  VStack,
+  Text,
+  Spinner,
+  Center,
+  Box,
+  Code,
+  UnorderedList,
+  ListItem,
+} from '@chakra-ui/react';
 
 import { api } from '../api';
 
@@ -12,6 +30,8 @@ const DEFAULT_STATE = {
 export function ApiTestPage() {
   const [{ data, isLoading, error }, setState] = useState(DEFAULT_STATE);
   const [id, setId] = useState('');
+  const shouldShowData = !isLoading && data;
+  const shouldShowError = !isLoading && error;
 
   function setFetchingState() {
     setState({
@@ -54,47 +74,67 @@ export function ApiTestPage() {
 
   return (
     <>
-      <h1>API Test Page</h1>
-      <Form inline>
-        <Button variant="primary" onClick={onLoadList}>
-          Load List
-        </Button>
-        <span className="px-3">or</span>
-        <FormGroup>
-          <InputGroup>
-            <FormControl
-              type="text"
-              value={id}
-              onChange={(e) => setId(e.target.value)}
-              placeholder="Enter Recipe ID"
-              style={{ width: '250px' }}
-            />
-            <InputGroup.Append>
-              <Button variant="outline-secondary" onClick={onLoadDetail} disabled={!id}>
-                Load Detail
-              </Button>
-            </InputGroup.Append>
-          </InputGroup>
-          <span className="mx-3">or</span>
-          <Button variant="outline-secondary" onClick={onReset}>
-            Reset
-          </Button>
-        </FormGroup>
-      </Form>
-      <br />
-
+      <form>
+        <Heading my={4} color="dodgerblue">
+          API Test
+        </Heading>
+        <UnorderedList mb={4}>
+          <ListItem><Code>/recipes</Code></ListItem>
+          {(data || isLoading) && <ListItem><Code>/recipes/{`{id-or-slug}`}</Code></ListItem>}
+        </UnorderedList>
+        <HStack spacing={2}>
+          <Button onClick={onLoadList}>Load List</Button>
+          <Button onClick={onReset}>Reset</Button>
+        </HStack>
+        {shouldShowData && (
+          <VStack mt={4}>
+            <InputGroup size="md">
+              <Input
+                pr="4.5rem"
+                type="text"
+                placeholder="Enter Recipe ID"
+                value={id}
+                onChange={(e) => setId(e.target.value)}
+              />
+              <InputRightElement width="4.5rem">
+                <Button
+                  h="1.75rem"
+                  size="sm"
+                  onClick={onLoadDetail}
+                  disabled={!id}
+                >
+                  Load
+                </Button>
+              </InputRightElement>
+            </InputGroup>
+          </VStack>
+        )}
+      </form>
       {isLoading && (
-        <>
-          <i className="fa fa-spinner fa-spin" /> Loading&hellip;{' '}
-        </>
+        <Center h="300px">
+          <VStack spacing={4}>
+            <Spinner
+              thickness="4px"
+              speed="0.65s"
+              emptyColor="gray.200"
+              color="blue.500"
+              size="xl"
+            />
+            <Text>Loading</Text>
+          </VStack>
+        </Center>
       )}
-      {!isLoading && error && (
-        <Alert variant="danger">
-          <Alert.Heading>{error}</Alert.Heading>
+      {shouldShowError && (
+        <Alert status="error" mt={4}>
+          <AlertIcon />
+          <AlertTitle mr={2}>{error}</AlertTitle>
         </Alert>
       )}
-
-      {!isLoading && data && <pre>{JSON.stringify(data, null, 2)}</pre>}
+      {shouldShowData && (
+        <Box as="pre" mt={4}>
+          {JSON.stringify(data, null, 2)}
+        </Box>
+      )}
     </>
   );
 }

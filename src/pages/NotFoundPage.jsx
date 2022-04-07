@@ -1,17 +1,23 @@
 import React from 'react';
-import { Jumbotron } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import { Center, Heading, VStack, Button } from '@chakra-ui/react';
 
 export function NotFoundPage() {
+  const navigate = useNavigate();
+
   return (
-    <Jumbotron className="text-center">
-      <h1>Nenalezeno!</h1>
-      <h4>Toto není stránka, kterou hledáš.</h4>
-      <div className="mt-4">
-        <Link to="/" className="btn btn-primary btn-lg" role="button">
-          Přejít na domovskou stránku
-        </Link>
-      </div>
-    </Jumbotron>
+    <Center h="calc(100vh - 200px)">
+      <VStack>
+        <Heading as="h1">🔍 Nenalezeno!</Heading>
+        <Heading as="h2" size="md">
+          Toto není stránka, kterou hledáš.
+        </Heading>
+        <div className="mt-4">
+          <Button onClick={() => navigate('/')}>
+            Přejít na domovskou stránku
+          </Button>
+        </div>
+      </VStack>
+    </Center>
   );
 }

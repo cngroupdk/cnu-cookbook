@@ -1,20 +1,26 @@
 import React from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
-import 'bootstrap/dist/css/bootstrap.css';
-import 'font-awesome/css/font-awesome.css';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { ChakraProvider } from '@chakra-ui/react';
 
-import { Routes } from './Routes';
-import { AppLayout } from './pages/AppLayout';
-import './App.css';
+import { AppLayout } from './components/AppLayout';
+import { ApiTestPage } from './pages/ApiTestPage';
+import { NotFoundPage } from './pages/NotFoundPage';
+import { RecipeListPage } from './pages/RecipeListPage';
+// import { RecipeDetailPage } from './pages/RecipeDetailPage';
 
-function App() {
+export function App() {
   return (
-    <Router>
-      <AppLayout>
-        <Routes />
-      </AppLayout>
-    </Router>
+    <BrowserRouter>
+      <ChakraProvider>
+        <AppLayout>
+          <Routes>
+            <Route path="/" element={<RecipeListPage />} />
+            {/* <Route path="/recept/:slug" element={<RecipeDetailPage />} /> */}
+            <Route path="/api-test" element={<ApiTestPage />} />
+            <Route path="*" element={<NotFoundPage />} />
+          </Routes>
+        </AppLayout>
+      </ChakraProvider>
+    </BrowserRouter>
   );
 }
-
-export default App;
