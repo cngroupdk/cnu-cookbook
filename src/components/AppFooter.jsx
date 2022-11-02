@@ -3,7 +3,13 @@ import { Box, Divider, Text } from '@chakra-ui/react';
 
 export function AppFooter() {
   return (
-    <Box as="footer" h="50px" display="flex" alignItems="center" flexDirection="column">
+    <Box
+      as="footer"
+      h="50px"
+      display="flex"
+      alignItems="center"
+      flexDirection="column"
+    >
       <Divider />
       <Box as="footer" p={4}>
         <Text as="p">

@@ -79,8 +79,14 @@ export function ApiTestPage() {
           API Test
         </Heading>
         <UnorderedList mb={4}>
-          <ListItem><Code>/recipes</Code></ListItem>
-          {(data || isLoading) && <ListItem><Code>/recipes/{`{id-or-slug}`}</Code></ListItem>}
+          <ListItem>
+            <Code>/recipes</Code>
+          </ListItem>
+          {(data || isLoading) && (
+            <ListItem>
+              <Code>/recipes/{`{id-or-slug}`}</Code>
+            </ListItem>
+          )}
         </UnorderedList>
         <HStack spacing={2}>
           <Button onClick={onLoadList}>Load List</Button>

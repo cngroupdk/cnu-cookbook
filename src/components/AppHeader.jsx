@@ -14,14 +14,14 @@ export function AppHeader() {
       justifyContent="space-between"
     >
       <Heading ml={8} color="white">
-        <ReactRouterLink to="/">🐷 Cookbook 🐮</ReactRouterLink>
+        <ReactRouterLink to="/">🍅 Cookbook 🥒</ReactRouterLink>
       </Heading>
       <Box mr={4}>
         <HStack p={2} spacing={6}>
-          <Link as={ReactRouterLink} to='/api-test'>
+          <Link as={ReactRouterLink} to="/api-test">
             API TEST
           </Link>
-          <Link as={ReactRouterLink} to='/'>
+          <Link as={ReactRouterLink} to="/">
             RECEPTY
           </Link>
         </HStack>
