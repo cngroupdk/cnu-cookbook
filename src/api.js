@@ -1,6 +1,11 @@
-import { create } from 'apisauce';
-import { API_BASE_URL } from './config';
+import axios from 'axios';
 
-const api = create({ baseURL: API_BASE_URL });
+const API_BASE_URL = 'https://exercise.cngroup.dk/api/';
 
-export default api;
+export const api = axios.create({
+  baseURL: API_BASE_URL,
+  headers: {
+    'Cache-Control': 'no-cache',
+    Pragma: 'no-cache',
+  },
+});

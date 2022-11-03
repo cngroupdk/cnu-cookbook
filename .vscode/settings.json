@@ -1,0 +1,12 @@
+{
+  "files.associations": {
+    ".prettierrc": "yaml"
+  },
+  "eslint.packageManager": "yarn",
+  "eslint.validate": ["javascript", "javascriptreact"],
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "editor.defaultFormatter": "esbenp.prettier-vscode", 
+  "editor.formatOnSave": true
+}
