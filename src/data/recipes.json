@@ -1,0 +1,311 @@
+[
+  {
+    "_id": "5bf6cbef6ac34b001baef483",
+    "title": "13 hodinová kachna",
+    "preparationTime": 780,
+    "slug": "13-hodinova-kachna",
+    "lastModifiedDate": "2019-01-29T14:37:13.403Z"
+  },
+  {
+    "_id": "5b4f00f4f275000019d0c3b6",
+    "title": "Bábovka",
+    "preparationTime": 90,
+    "slug": "babovka",
+    "lastModifiedDate": "2018-10-05T19:25:38.083Z"
+  },
+  {
+    "_id": "58067fc20cde48000f329083",
+    "title": "Boršč",
+    "lastModifiedDate": "2018-06-24T19:47:19.745Z",
+    "preparationTime": 180,
+    "slug": "borsc"
+  },
+  {
+    "_id": "59a48c7cddd1b8001b58032a",
+    "title": "Bramborové knedlíky plněné uzeným",
+    "sideDish": "zelí, špenát",
+    "preparationTime": 60,
+    "slug": "bramborove-knedliky-plnene-uzenym",
+    "lastModifiedDate": "2018-06-24T19:50:02.357Z"
+  },
+  {
+    "_id": "5a77086b2b8ac70019202fbe",
+    "title": "Bramborový knedlík",
+    "preparationTime": 30,
+    "slug": "bramborovy-knedlik",
+    "lastModifiedDate": "2018-06-24T19:50:40.972Z"
+  },
+  {
+    "_id": "5806800c0cde48000f329085",
+    "title": "Brownies",
+    "lastModifiedDate": "2018-06-24T19:52:32.696Z",
+    "preparationTime": 60,
+    "slug": "brownies"
+  },
+  {
+    "_id": "580676f70cde48000f329069",
+    "title": "Buřtguláš",
+    "lastModifiedDate": "2018-08-11T20:33:30.296Z",
+    "preparationTime": 60,
+    "sideDish": "chléb",
+    "slug": "burtgulas"
+  },
+  {
+    "_id": "5a86bffcc72a100019422806",
+    "title": "Chilli con carne (rychlé)",
+    "preparationTime": 60,
+    "sideDish": "rýže",
+    "slug": "chilli-con-carne-rychle",
+    "lastModifiedDate": "2018-06-24T19:56:30.607Z"
+  },
+  {
+    "_id": "5a6f9b61d5fa9300191ad6bc",
+    "title": "Chléb Šumava",
+    "preparationTime": 180,
+    "slug": "chleb-sumava",
+    "lastModifiedDate": "2018-06-24T12:24:39.506Z"
+  },
+  {
+    "_id": "5b099d5336db5e0019d250e5",
+    "title": "Chléb z formy",
+    "preparationTime": 120,
+    "slug": "chleb-z-formy",
+    "lastModifiedDate": "2018-06-26T16:40:58.575Z"
+  },
+  {
+    "_id": "580677e00cde48000f329074",
+    "title": "Cibulačka",
+    "lastModifiedDate": "2018-06-24T19:57:24.614Z",
+    "preparationTime": 45,
+    "slug": "cibulacka"
+  },
+  {
+    "_id": "5b5d9d4e871e4d001a4d28b1",
+    "title": "Čočka na kyselo",
+    "preparationTime": 30,
+    "slug": "cocka-na-kyselo",
+    "lastModifiedDate": "2018-07-29T10:57:41.810Z"
+  },
+  {
+    "_id": "5c0173f27367c9001baaef03",
+    "title": "Čočková polévka s chorizem",
+    "preparationTime": 30,
+    "slug": "cockova-polevka-s-chorizem",
+    "lastModifiedDate": "2018-11-30T17:31:30.178Z"
+  },
+  {
+    "_id": "59d345553491ef00199cfc4c",
+    "title": "Čočková polévka s párkem",
+    "preparationTime": 30,
+    "slug": "cockova-polevka-s-parkem",
+    "lastModifiedDate": "2018-06-28T17:54:32.360Z"
+  },
+  {
+    "_id": "5b956d4dd7992f001aa3c605",
+    "title": "Cuketové placky z trouby",
+    "preparationTime": 60,
+    "sideDish": "brambory",
+    "slug": "cuketove-placky-z-trouby",
+    "lastModifiedDate": "2018-09-09T18:58:21.878Z"
+  },
+  {
+    "_id": "5c41bbd5a28cb9001bb85f16",
+    "title": "Dhál z červené čočky a pečeného květáku & čapátí",
+    "preparationTime": 20,
+    "sideDish": "čapátí",
+    "slug": "dhal-z-cervene-cocky-a-peceneho-kvetaku-and-capati",
+    "lastModifiedDate": "2019-01-18T11:45:03.981Z"
+  },
+  {
+    "_id": "580680060cde48000f329084",
+    "title": "Drobenkový koláč s tvarohem a ovocem",
+    "lastModifiedDate": "2018-08-05T08:07:41.331Z",
+    "preparationTime": 45,
+    "slug": "drobenkovy-kolac-s-tvarohem-a-ovocem"
+  },
+  {
+    "_id": "5a116cbb31f7a7001ab9e6f6",
+    "title": "Dršťková polévka z hlívy",
+    "preparationTime": 30,
+    "slug": "drstkova-polevka-z-hlivy",
+    "lastModifiedDate": "2018-06-24T20:07:09.350Z"
+  },
+  {
+    "_id": "59a482dbddd1b8001b580320",
+    "title": "Dušené hlávkové zelí",
+    "preparationTime": 30,
+    "slug": "dusene-hlavkove-zeli",
+    "lastModifiedDate": "2018-06-24T20:08:44.805Z"
+  },
+  {
+    "_id": "58187688a67c6b000fe5db23",
+    "title": "Dýňová polévka",
+    "lastModifiedDate": "2018-06-24T20:10:00.384Z",
+    "slug": "dynova-polevka",
+    "preparationTime": 45
+  },
+  {
+    "_id": "59cba5953491ef00199cfc41",
+    "title": "Dýňová polévka s červenou čočkou",
+    "preparationTime": 30,
+    "slug": "dynova-polevka-s-cervenou-cockou",
+    "lastModifiedDate": "2018-06-24T20:11:02.775Z"
+  },
+  {
+    "_id": "57f3f16d34de67000fd29bdd",
+    "title": "Grilovaný hermelín se salátem",
+    "preparationTime": 30,
+    "sideDish": "špenátový salát",
+    "lastModifiedDate": "2018-07-28T15:30:44.076Z",
+    "slug": "grilovany-hermelin-se-salatem"
+  },
+  {
+    "_id": "581a5a7fa67c6b000fe5db24",
+    "title": "Hořčičná marináda",
+    "preparationTime": 5,
+    "lastModifiedDate": "2018-10-07T18:06:50.193Z",
+    "slug": "horcicna-marinada"
+  },
+  {
+    "_id": "580676ff0cde48000f32906a",
+    "title": "Hovězí guláš (v tlakovém hrnci)",
+    "lastModifiedDate": "2019-01-18T11:46:06.811Z",
+    "preparationTime": 150,
+    "sideDish": "těstoviny",
+    "slug": "hovezi-gulas-v-tlakovem-hrnci"
+  },
+  {
+    "_id": "58067add0cde48000f329076",
+    "title": "Hovězí na česneku",
+    "sideDish": "bramborový knedlík",
+    "lastModifiedDate": "2018-06-24T20:18:03.499Z",
+    "preparationTime": 150,
+    "slug": "hovezi-na-cesneku"
+  },
+  {
+    "_id": "590daced68a63100105f8e93",
+    "title": "Hovězí na houbách",
+    "preparationTime": 75,
+    "sideDish": "rýže",
+    "slug": "hovezi-na-houbach",
+    "lastModifiedDate": "2018-06-24T20:20:05.364Z"
+  },
+  {
+    "_id": "59e2118e3491ef00199cfc78",
+    "title": "Hovězí žebra na medu",
+    "preparationTime": 150,
+    "sideDish": "chléb",
+    "slug": "hovezi-zebra-na-medu",
+    "lastModifiedDate": "2018-06-24T20:21:09.662Z"
+  },
+  {
+    "_id": "5b1c4cea36db5e0019d250f7",
+    "title": "Hranolky z trouby",
+    "preparationTime": 40,
+    "slug": "hranolky-z-trouby",
+    "lastModifiedDate": "2018-11-25T16:09:43.350Z"
+  },
+  {
+    "_id": "5831cea3a67c6b000fe5db42",
+    "title": "Karlovarský knedlík",
+    "preparationTime": 45,
+    "lastModifiedDate": "2018-09-13T22:40:02.101Z",
+    "slug": "karlovarsky-knedlik"
+  },
+  {
+    "_id": "580677bc0cde48000f329070",
+    "title": "Koprová omáčka s hovězím masem",
+    "lastModifiedDate": "2018-10-06T17:30:01.148Z",
+    "sideDish": "brambory",
+    "preparationTime": 180,
+    "slug": "koprova-omacka-s-hovezim-masem"
+  },
+  {
+    "_id": "5b128fd536db5e0019d250ef",
+    "title": "Kroupoto se žampiony",
+    "preparationTime": 45,
+    "slug": "kroupoto-se-zampiony",
+    "lastModifiedDate": "2018-06-24T22:57:28.737Z"
+  },
+  {
+    "_id": "5817a20ba67c6b000fe5db1e",
+    "title": "Krůtí bochánky",
+    "preparationTime": 45,
+    "sideDish": "rýže",
+    "lastModifiedDate": "2018-06-25T19:55:50.503Z",
+    "slug": "kruti-bochanky"
+  },
+  {
+    "_id": "58067ddf0cde48000f329079",
+    "title": "Krůtí medailonky se žampionovým ragú",
+    "preparationTime": 45,
+    "lastModifiedDate": "2018-06-25T05:42:46.441Z",
+    "sideDish": "rýže",
+    "slug": "kruti-medailonky-se-zampionovym-ragu"
+  },
+  {
+    "_id": "5a524c9b3b72b1001b602055",
+    "title": "Kulajda",
+    "preparationTime": 30,
+    "slug": "kulajda",
+    "lastModifiedDate": "2018-06-25T05:44:48.969Z"
+  },
+  {
+    "_id": "58067f970cde48000f329082",
+    "title": "Kuře na kari",
+    "sideDish": "rýže",
+    "lastModifiedDate": "2018-06-25T05:45:33.855Z",
+    "slug": "kure-na-kari"
+  },
+  {
+    "_id": "57ed9c6022e125000f2a7146",
+    "title": "Kuře na paprice",
+    "preparationTime": 75,
+    "sideDish": "těstoviny",
+    "lastModifiedDate": "2018-12-17T12:33:12.120Z",
+    "slug": "kure-na-paprice"
+  },
+  {
+    "_id": "5b9a5dfcd7992f001aa3c60c",
+    "title": "Kuře s chorizem a olivami",
+    "preparationTime": 90,
+    "sideDish": "brambory, rýže",
+    "slug": "kure-s-chorizem-a-olivami",
+    "lastModifiedDate": "2018-09-13T12:54:20.843Z"
+  },
+  {
+    "_id": "580677cc0cde48000f329072",
+    "title": "Kuřecí polévka",
+    "lastModifiedDate": "2018-08-02T07:40:36.657Z",
+    "preparationTime": 120,
+    "slug": "kureci-polevka"
+  },
+  {
+    "_id": "5a5248123b72b1001b60204c",
+    "title": "Kuřecí těstovinový salát",
+    "preparationTime": 30,
+    "slug": "kureci-testovinovy-salat",
+    "lastModifiedDate": "2018-06-25T05:54:56.158Z"
+  },
+  {
+    "_id": "59f5c2a33491ef00199cfc88",
+    "title": "Kuskus s červenou čočkou a zeleninou",
+    "preparationTime": 15,
+    "slug": "kuskus-s-cervenou-cockou-a-zeleninou",
+    "lastModifiedDate": "2018-10-06T16:55:33.679Z"
+  },
+  {
+    "_id": "59d6c1a53491ef00199cfc72",
+    "title": "Kuskus s pečeným kuřetem",
+    "slug": "kuskus-s-pecenym-kuretem",
+    "lastModifiedDate": "2018-06-25T19:47:47.397Z",
+    "preparationTime": 60
+  },
+  {
+    "_id": "580677c40cde48000f329071",
+    "title": "Květáková polévka",
+    "lastModifiedDate": "2018-06-25T19:49:09.480Z",
+    "preparationTime": 30,
+    "slug": "kvetakova-polevka"
+  }
+]
