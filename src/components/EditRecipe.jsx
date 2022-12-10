@@ -18,7 +18,7 @@ import {
   Text,
   Box,
 } from '@chakra-ui/react';
-import { useParams } from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom';
 import { api } from '../api';
 import { Navigate } from 'react-router-dom';
 import axios from 'axios';
@@ -30,7 +30,7 @@ import { useState, useEffect } from 'react';
 export function EditRecipe({ title, preparationTime, sideDish }) {
   const { slug } = useParams();
   const navigate = useNavigate();
-
+  const location = useLocation();
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
 
@@ -47,17 +47,6 @@ export function EditRecipe({ title, preparationTime, sideDish }) {
     }
   };
 
-  axios({
-    method: 'get',
-    url: 'https://exercise.cngroup.dk/api/recipes',
-    data: {
-      title: inputName,
-      preparationTime: inputTime,
-      directions: 'test postup',
-      sideDish: inputDish,
-    },
-  });
-
   useEffect(() => {
     function getRecipeDetail() {
       setIsLoading(true);
@@ -70,7 +59,7 @@ export function EditRecipe({ title, preparationTime, sideDish }) {
     getRecipeDetail();
   }, [slug]);
 
-  console.log(detail._id);
+  console.log('location state', location.state);
 
   return (
     <FormControl onSubmit={handler}>
@@ -86,7 +75,7 @@ export function EditRecipe({ title, preparationTime, sideDish }) {
       <HStack spacing={3} marginBottom={5}>
         <Input
           isInvalid={isError}
-          defaultValue={inputName}
+          defaultValue={location.state.title}
           placeholder="Název"
         />
         {!isError ? (
@@ -106,6 +95,7 @@ export function EditRecipe({ title, preparationTime, sideDish }) {
           <FormLabel>Doba přípravy v minutách</FormLabel>
           <NumberInput
             value={preparationTime}
+            defaultValue={location.state.preparationTime}
             width={300}
             max={99999999}
             min={1}
@@ -127,7 +117,12 @@ export function EditRecipe({ title, preparationTime, sideDish }) {
           </NumberInput>
 
           <Text>Příloha</Text>
-          <Input htmlSize={5} width={'300px'} placeholder="Název" />
+          <Input
+            htmlSize={5}
+            width={'300px'}
+            defaultValue={location.state.sideDish}
+            placeholder="Název"
+          />
         </VStack>
 
         <VStack spacing={3}>
@@ -143,14 +138,24 @@ export function EditRecipe({ title, preparationTime, sideDish }) {
             </NumberInputStepper>
           </NumberInput>
           <Input htmlSize={5} width={'300px'} placeholder="Jednotka" />
-          <Input htmlSize={5} width={'300px'} placeholder="Název ingredience" />
+          <Input
+            htmlSize={5}
+            width={'300px'}
+            placeholder="Název ingredience"
+            defaultValue={location.state.ingredients}
+          />
         </VStack>
 
         <VStack>
           <Heading as="h2" size="md">
             Postup
           </Heading>
-          <Textarea width={500} height={'500px'} placeholder="Napiš postup:" />
+          <Textarea
+            width={500}
+            defaultValue={location.state.directions}
+            height={'500px'}
+            placeholder="Napiš postup:"
+          />
         </VStack>
       </HStack>
     </FormControl>

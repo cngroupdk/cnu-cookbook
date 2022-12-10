@@ -59,7 +59,9 @@ export function RecipeDetailPage() {
         <>
           <Heading>{detail.title}</Heading>
           <HStack>
-            <Button onClick={() => navigate('/edit')}>Upravit</Button>
+            <Button onClick={() => navigate('/edit', { state: detail })}>
+              Upravit
+            </Button>
             <Button
               onClick={() => {
                 postDelete();

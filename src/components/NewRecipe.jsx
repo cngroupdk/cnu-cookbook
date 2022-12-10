@@ -33,6 +33,10 @@ export function NewRecipe() {
 
   const [inputDish, setInputDish] = useState('');
   const handleInputDish = (e) => setInputDish(e.target.value);
+
+  const [inputDirections, setInputDirections] = useState('');
+  const handleInputDirections = (e) => setInputDirections(e.target.value);
+
   const isError = inputName === '';
 
   const handler = () => {
@@ -45,7 +49,7 @@ export function NewRecipe() {
       data: {
         title: inputName,
         preparationTime: inputTime,
-        directions: 'test postup',
+        directions: inputDirections,
         sideDish: inputDish,
       },
     })
@@ -144,7 +148,13 @@ export function NewRecipe() {
           <Heading as="h2" size="md">
             Postup
           </Heading>
-          <Textarea width={500} height={'500px'} placeholder="Napiš postup:" />
+          <Textarea
+            width={500}
+            height={'500px'}
+            value={inputDirections}
+            onChange={handleInputDirections}
+            placeholder="Napiš postup:"
+          />
         </VStack>
       </HStack>
     </FormControl>
