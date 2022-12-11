@@ -12,8 +12,8 @@ import { useParams } from 'react-router-dom';
 import { api } from '../api';
 import { LoadingSpinner } from '../components/LoadingSpinner';
 import Axios from 'axios';
-import { Routes, useNavigate } from 'react-router-dom';
-import { format, compareAsc } from 'date-fns';
+import { useNavigate } from 'react-router-dom';
+import { format } from 'date-fns';
 
 export function RecipeDetailPage() {
   const { slug } = useParams();
@@ -44,13 +44,6 @@ export function RecipeDetailPage() {
   }
   if (error) {
     return <Text>{error}</Text>;
-  }
-  if (detail?.preparationTime) {
-    detail.preparationTime =
-      [Math.floor(detail.preparationTime / 60)] +
-      ' h ' +
-      [detail.preparationTime % 60] +
-      ' min';
   }
 
   return (
@@ -85,7 +78,9 @@ export function RecipeDetailPage() {
               )}
               <Text>{format(new Date(detail.lastModifiedDate), 'P')}</Text>
             </Box>
-            {detail.directions && <Text ml={20}>{detail.directions}</Text>}
+            {detail.directions && (
+              <Text ml={20}>{detail.directions.replace('\n', ' ')}</Text>
+            )}
           </Box>
         </>
       )}

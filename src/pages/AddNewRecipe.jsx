@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
-import { useNavigate, Routes } from 'react-router-dom';
-import { Center, VStack, Button } from '@chakra-ui/react';
+import { useNavigate } from 'react-router-dom';
+
 import { NewRecipe } from '../components/NewRecipe';
 import { api } from '../api';
-import { Box, Heading, Text, Input } from '@chakra-ui/react';
+import { Box, Heading } from '@chakra-ui/react';
 
 export function AddNewRecipe() {
   const [newRecipe, setNewRecipe] = useState([]);
