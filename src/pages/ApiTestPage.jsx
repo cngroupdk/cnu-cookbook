@@ -1,10 +1,9 @@
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import {
   Alert,
   AlertIcon,
   AlertTitle,
-  InputGroup,
-  InputRightElement,
+  Divider,
   Input,
   Button,
   Heading,
@@ -17,7 +16,9 @@ import {
   Code,
   UnorderedList,
   ListItem,
+  Tooltip,
 } from '@chakra-ui/react';
+import { InfoIcon } from '@chakra-ui/icons';
 
 import { api } from '../api';
 
@@ -27,13 +28,83 @@ const DEFAULT_STATE = {
   error: null,
 };
 
+const DUMMY_RECIPE = {
+  title: 'Skvělá pochoutka',
+  preparationTime: 2,
+  servingCount: 10,
+  sideDish: 'nic',
+  directions:
+    'Otevřete sáček brambůrků a vysypejte do misky. Tadá a je hotovo!',
+  ingredients: [
+    {
+      name: 'Sáček brambůrků',
+      amount: 1,
+      amountUnit: 'ks',
+      isGroup: false,
+    },
+  ],
+};
+
+function RestEndpoint({ path, method, handlers, children, parameterName }) {
+  const [parameterValue, setParameterValue] = useState('');
+
+  const colorSchemes = {
+    GET: 'twitter',
+    POST: 'green',
+    DELETE: 'red',
+  };
+
+  const colorScheme = colorSchemes[method];
+  const handler = handlers[method];
+
+  return (
+    <HStack spacing={1}>
+      <Code>
+        {path}
+        {parameterName && (
+          <Input
+            border="none"
+            size="xs"
+            type="text"
+            placeholder={parameterName}
+            value={parameterValue}
+            onChange={(e) => setParameterValue(e.target.value)}
+            width="16rem"
+          />
+        )}
+      </Code>
+      <Code
+        as="button"
+        type="button"
+        colorScheme={parameterName && !parameterValue ? 'gray' : colorScheme}
+        variant={parameterName && !parameterValue ? 'outline' : undefined}
+        disabled={parameterName && !parameterValue}
+        onClick={() =>
+          handler(parameterName ? `${path}${parameterValue}` : path)
+        }
+      >
+        {method}
+      </Code>
+      {children}
+    </HStack>
+  );
+}
+
 export function ApiTestPage() {
   const [{ data, isLoading, error }, setState] = useState(DEFAULT_STATE);
-  const [id, setId] = useState('');
+
   const shouldShowData = !isLoading && data;
   const shouldShowError = !isLoading && error;
 
-  function setFetchingState() {
+  const sessionRecipe = useMemo(() => {
+    const sessionSeed = new Date().getTime().toString();
+    return {
+      ...DUMMY_RECIPE,
+      title: `${DUMMY_RECIPE.title}-${sessionSeed}`,
+    };
+  }, []);
+
+  function setLoading() {
     setState({
       isLoading: true,
       data: null,
@@ -57,20 +128,35 @@ export function ApiTestPage() {
     });
   }
 
-  function onLoadList() {
-    setFetchingState();
-    api.get('/recipes').then(onFetchSuccess).catch(onFetchFailure);
+  function handleGetRequest(path) {
+    setLoading();
+    api.get(path).then(onFetchSuccess).catch(onFetchFailure);
   }
 
-  function onLoadDetail() {
-    setFetchingState();
-    api.get(`/recipes/${id}`).then(onFetchSuccess).catch(onFetchFailure);
+  function handleDeleteRequest(path) {
+    setLoading();
+    api.delete(path).then(onFetchSuccess).catch(onFetchFailure);
   }
 
-  function onReset() {
+  function handlePostRequest(path) {
+    api.post(path, sessionRecipe).then(onFetchSuccess).catch(onFetchFailure);
+  }
+
+  const restHandlers = {
+    GET: handleGetRequest,
+    POST: handlePostRequest,
+    DELETE: handleDeleteRequest,
+  };
+
+  function handleReset() {
     setState(DEFAULT_STATE);
-    setId('');
   }
+
+  const tooltip = (
+    <Tooltip label={'Data: ' + JSON.stringify(sessionRecipe)}>
+      <InfoIcon />
+    </Tooltip>
+  );
 
   return (
     <>
@@ -80,41 +166,59 @@ export function ApiTestPage() {
         </Heading>
         <UnorderedList mb={4}>
           <ListItem>
-            <Code>/recipes</Code>
+            <RestEndpoint
+              path="/recipes"
+              method="GET"
+              handlers={restHandlers}
+            />
           </ListItem>
-          {(data || isLoading) && (
-            <ListItem>
-              <Code>/recipes/{`{id-or-slug}`}</Code>
-            </ListItem>
-          )}
+          <ListItem>
+            <RestEndpoint
+              path="/recipes/"
+              method="GET"
+              handlers={restHandlers}
+              parameterName="id-or-slug"
+            />
+          </ListItem>
+          <ListItem>
+            <RestEndpoint path="/recipes" method="POST" handlers={restHandlers}>
+              {tooltip}
+            </RestEndpoint>
+          </ListItem>
+          <ListItem>
+            <RestEndpoint
+              path="/recipes/"
+              method="POST"
+              handlers={restHandlers}
+              parameterName="id"
+            >
+              {tooltip}
+            </RestEndpoint>
+          </ListItem>
+          <ListItem>
+            <RestEndpoint
+              path="/recipes/"
+              method="DELETE"
+              handlers={restHandlers}
+              parameterName="id"
+            />
+          </ListItem>
+          <ListItem>
+            <RestEndpoint
+              path="/recipes/ingredients"
+              method="GET"
+              handlers={restHandlers}
+            />
+          </ListItem>
+          <ListItem>
+            <RestEndpoint
+              path="/recipes/side-dishes"
+              method="GET"
+              handlers={restHandlers}
+            />
+          </ListItem>
         </UnorderedList>
-        <HStack spacing={2}>
-          <Button onClick={onLoadList}>Load List</Button>
-          <Button onClick={onReset}>Reset</Button>
-        </HStack>
-        {shouldShowData && (
-          <VStack mt={4}>
-            <InputGroup size="md">
-              <Input
-                pr="4.5rem"
-                type="text"
-                placeholder="Enter Recipe ID"
-                value={id}
-                onChange={(e) => setId(e.target.value)}
-              />
-              <InputRightElement width="4.5rem">
-                <Button
-                  h="1.75rem"
-                  size="sm"
-                  onClick={onLoadDetail}
-                  disabled={!id}
-                >
-                  Load
-                </Button>
-              </InputRightElement>
-            </InputGroup>
-          </VStack>
-        )}
+        <Button onClick={handleReset}>Reset</Button>
       </form>
       {isLoading && (
         <Center h="300px">
@@ -138,6 +242,7 @@ export function ApiTestPage() {
       )}
       {shouldShowData && (
         <Box as="pre" mt={4}>
+          <Divider mb={4} />
           {JSON.stringify(data, null, 2)}
         </Box>
       )}
