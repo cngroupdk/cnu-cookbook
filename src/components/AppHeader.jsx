@@ -1,4 +1,3 @@
-import React from 'react';
 import { Link as ReactRouterLink } from 'react-router-dom';
 import { Box, Heading, Link, HStack } from '@chakra-ui/react';
 
@@ -16,7 +15,7 @@ export function AppHeader() {
       <Heading ml={8} color="white">
         <ReactRouterLink to="/">🍅 Cookbook 🥒</ReactRouterLink>
       </Heading>
-      <Box mr={4}>
+      <Box as="nav" mr={4}>
         <HStack p={2} spacing={6}>
           <Link as={ReactRouterLink} to="/api-test">
             API TEST

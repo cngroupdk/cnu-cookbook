@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import { useMemo, useState } from 'react';
 import {
   Alert,
   AlertIcon,
@@ -130,12 +130,11 @@ export function ApiTestPage() {
 
   const handleRequest = (method) => (path) => {
     setLoading();
-    api[method](path, method === 'post' ? sessionRecipe : undefined)
-      .then(onRequestSuccess)
-      .catch(onRequestFailure);
+    const payload = method === 'post' ? sessionRecipe : undefined;
+    api[method](path, payload).then(onRequestSuccess).catch(onRequestFailure);
   };
 
-  const restHandlers = {
+  const handlers = {
     GET: handleRequest('get'),
     POST: handleRequest('post'),
     DELETE: handleRequest('delete'),
@@ -159,22 +158,18 @@ export function ApiTestPage() {
         </Heading>
         <UnorderedList mb={4}>
           <ListItem>
-            <RestEndpoint
-              path="/recipes"
-              method="GET"
-              handlers={restHandlers}
-            />
+            <RestEndpoint path="/recipes" method="GET" handlers={handlers} />
           </ListItem>
           <ListItem>
             <RestEndpoint
               path="/recipes/"
               method="GET"
-              handlers={restHandlers}
+              handlers={handlers}
               parameterName="id-or-slug"
             />
           </ListItem>
           <ListItem>
-            <RestEndpoint path="/recipes" method="POST" handlers={restHandlers}>
+            <RestEndpoint path="/recipes" method="POST" handlers={handlers}>
               {tooltip}
             </RestEndpoint>
           </ListItem>
@@ -182,7 +177,7 @@ export function ApiTestPage() {
             <RestEndpoint
               path="/recipes/"
               method="POST"
-              handlers={restHandlers}
+              handlers={handlers}
               parameterName="id"
             >
               {tooltip}
@@ -192,7 +187,7 @@ export function ApiTestPage() {
             <RestEndpoint
               path="/recipes/"
               method="DELETE"
-              handlers={restHandlers}
+              handlers={handlers}
               parameterName="id"
             />
           </ListItem>
@@ -200,14 +195,14 @@ export function ApiTestPage() {
             <RestEndpoint
               path="/recipes/ingredients"
               method="GET"
-              handlers={restHandlers}
+              handlers={handlers}
             />
           </ListItem>
           <ListItem>
             <RestEndpoint
               path="/recipes/side-dishes"
               method="GET"
-              handlers={restHandlers}
+              handlers={handlers}
             />
           </ListItem>
         </UnorderedList>
