@@ -112,7 +112,7 @@ export function ApiTestPage() {
     });
   }
 
-  function onFetchSuccess({ data }) {
+  function onRequestSuccess({ data }) {
     setState({
       isLoading: false,
       data,
@@ -120,7 +120,7 @@ export function ApiTestPage() {
     });
   }
 
-  function onFetchFailure({ message }) {
+  function onRequestFailure({ message }) {
     setState({
       isLoading: false,
       data: null,
@@ -128,24 +128,17 @@ export function ApiTestPage() {
     });
   }
 
-  function handleGetRequest(path) {
+  const handleRequest = (method) => (path) => {
     setLoading();
-    api.get(path).then(onFetchSuccess).catch(onFetchFailure);
-  }
-
-  function handleDeleteRequest(path) {
-    setLoading();
-    api.delete(path).then(onFetchSuccess).catch(onFetchFailure);
-  }
-
-  function handlePostRequest(path) {
-    api.post(path, sessionRecipe).then(onFetchSuccess).catch(onFetchFailure);
-  }
+    api[method](path, method === 'post' ? sessionRecipe : undefined)
+      .then(onRequestSuccess)
+      .catch(onRequestFailure);
+  };
 
   const restHandlers = {
-    GET: handleGetRequest,
-    POST: handlePostRequest,
-    DELETE: handleDeleteRequest,
+    GET: handleRequest('get'),
+    POST: handleRequest('post'),
+    DELETE: handleRequest('delete'),
   };
 
   function handleReset() {
